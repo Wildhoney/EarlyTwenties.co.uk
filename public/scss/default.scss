@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    overflow-x: hidden;
+}
+
+@import "sections/navigation.scss";
+@import "sections/carousel.scss";
+
+h1 {
+    font-family: Lato, Arial, Tahoma, Arial, Helvetica, sans-serif;
+}
+
+div.border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    border: 5px solid white;
+}
