@@ -42,6 +42,103 @@
             require: 'ngModel',
 
             /**
+             * @property controller
+             * @type {Array}
+             */
+            controller: ['$scope', function controller($scope) {
+
+                /**
+                 * @method getImage
+                 * @param {Array} image
+                 * @return {Array}
+                 */
+                $scope.getImage = function getImage(image) {
+                    return typeof image === 'object' ? image.src : image;
+                };
+
+                /**
+                 * @property current
+                 * @type {Number}
+                 */
+                $scope.current = 0;
+
+                /**
+                 * @property userIntervention
+                 * @type {Boolean}
+                 */
+                $scope.userIntervention = false;
+
+                /**
+                 * @property interval
+                 * @type {{cancel: *}}
+                 */
+                $scope.interval = { cancel: angular.noop };
+
+                /**
+                 * @property timeout
+                 * @type {{cancel: *}}
+                 */
+                $scope.timeout = { cancel: angular.noop };
+
+                /**
+                 * @method setIndex
+                 * @param {Number} current
+                 * @return {void}
+                 */
+                $scope.setIndex = function setIndex(current) {
+
+                    $scope.current = current;
+
+                    if ($scope.current >= $scope.images.length) {
+                        $scope.current = 0;
+                    }
+
+                    if ($scope.current < 0) {
+                        $scope.current = $scope.images.length - 1;
+                    }
+
+                };
+
+                /**
+                 * @method startTransitioning
+                 * @return {void}
+                 */
+                $scope.startTransitioning = function startTransitioning() {
+
+                    $scope.interval = $interval(function interval() {
+
+                        $scope.setIndex($scope.current + 1);
+
+                    }, (INTERVAL_TRANSITION_SECONDS * 1000));
+
+                };
+
+                /**
+                 * @method forceIndex
+                 * @param {Number} index
+                 * @return {void}
+                 */
+                $scope.forceIndex = function forceIndex(index) {
+
+                    $scope.userIntervention = true;
+
+                    $interval.cancel($scope.interval);
+                    $timeout.cancel($scope.timeout);
+
+                    $scope.setIndex(index);
+
+                    $scope.timeout = $timeout(function timeout() {
+
+                        $scope.userIntervention = false;
+                        $scope.startTransitioning();
+
+                    }, (RESUME_TRANSITION_SECONDS * 1000));
+
+                };
+
+            }],
+
+            /**
              * @property replace
              * @type {Boolean}
              */
@@ -60,88 +157,8 @@
              */
             link: function link(scope) {
 
-                /**
-                 * @property current
-                 * @type {Number}
-                 */
-                scope.current = 0;
-
-                /**
-                 * @property userIntervention
-                 * @type {Boolean}
-                 */
-                scope.userIntervention = false;
-
-                /**
-                 * @property interval
-                 * @type {{cancel: *}}
-                 */
-                scope.interval = { cancel: angular.noop };
-
-                /**
-                 * @property timeout
-                 * @type {{cancel: *}}
-                 */
-                scope.timeout = { cancel: angular.noop };
-
-                /**
-                 * @method setIndex
-                 * @param {Number} current
-                 * @return {void}
-                 */
-                scope.setIndex = function setIndex(current) {
-
-                    scope.current = current;
-
-                    if (scope.current >= scope.images.length) {
-                        scope.current = 0;
-                    }
-
-                    if (scope.current < 0) {
-                        scope.current = scope.images.length - 1;
-                    }
-
-                };
-
-                /**
-                 * @method startTransitioning
-                 * @return {void}
-                 */
-                scope.startTransitioning = function startTransitioning() {
-
-                    scope.interval = $interval(function interval() {
-
-                        scope.setIndex(scope.current + 1);
-
-                    }, (INTERVAL_TRANSITION_SECONDS * 1000));
-
-                };
-
                 // Begin the transition process!
                 scope.startTransitioning();
-
-                /**
-                 * @method forceIndex
-                 * @param {Number} index
-                 * @return {void}
-                 */
-                scope.forceIndex = function forceIndex(index) {
-
-                    scope.userIntervention = true;
-
-                    $interval.cancel(scope.interval);
-                    $timeout.cancel(scope.timeout);
-
-                    scope.setIndex(index);
-
-                    scope.timeout = $timeout(function timeout() {
-                        
-                        scope.userIntervention = false;
-                        scope.startTransitioning();
-
-                    }, (RESUME_TRANSITION_SECONDS * 1000));
-
-                };
 
                 // Add keyboard event listeners.
 

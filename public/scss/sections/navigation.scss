@@ -1,5 +1,6 @@
 $height: 50px;
 $mobile-width: 600px;
+$background-blur: 20px;
 
 ul.navigation {
     position: absolute;
@@ -10,8 +11,7 @@ ul.navigation {
     height: $height;
     line-height: $height;
     padding: 0 10px;
-    margin: 0 0 0 5px;
-    background: white;
+    margin: 10px 0 0 5px;
 
     @media (max-width: $mobile-width) {
         margin: 30px 0 0 20px;
@@ -21,14 +21,25 @@ ul.navigation {
         opacity: .5;
     }
 
+    &:before {
+        content: "";
+        position: absolute;
+        height: $height + 20;
+        -webkit-filter: blur($background-blur);
+        width: 110%;
+        top: -$background-blur;
+        left: -$background-blur;
+        background-color: rgba(0, 0, 0, .45);
+    }
+
     li.nav-item {
         transition: all .5s;
         display: inline-block;
-        color: black;
+        color: white;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, .5);
         padding: 0 10px;
-        font-family: Lato, Arial, Tahoma, Arial, Helvetica, sans-serif;
-        font-size: 12px;
-        text-transform: uppercase;
+        font-family: "Amatic SC", sans-serif;
+        font-size: 20px;
         cursor: pointer;
         position: relative;
 
@@ -57,6 +68,8 @@ ul.navigation {
             }
 
             li {
+                opacity: 1;
+                font-size: 15px;
                 line-height: 20px;
             }
         }
@@ -64,8 +77,8 @@ ul.navigation {
         ul.sub-navigation {
             padding: 0;
             position: absolute;
-            top: 60px;
-            left: 30px;
+            top: 40px;
+            left: 38px;
             opacity: 0;
             pointer-events: none;
 

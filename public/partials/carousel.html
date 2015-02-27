@@ -1,6 +1,8 @@
 <section class="carousel" ng-class="{ quick: userIntervention }">
 
-    <img ng-class="{ visible: $index === current }" ng-repeat="image in images" style="background-image: url({{image}})" />
+    <div class="image" ng-repeat="image in images" ng-class="{ visible: $index === current }" style="background-image: url({{getImage(image)}})">
+        <label ng-show="image.label">{{image.label}}</label>
+    </div>
 
     <div class="traverse">
         <i class="fa fa-arrow-left" ng-click="forceIndex(current - 1)"></i>
