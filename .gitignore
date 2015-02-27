@@ -11,3 +11,5 @@ public/vendor/*
 # Project
 public/build/*
 !public/build/.gitkeep
+public/fonts/*
+!public/fonts/.gitkeep
