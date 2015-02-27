@@ -24,7 +24,13 @@
          * @constant BACKGROUND_URL
          * @type {String}
          */
-        BACKGROUND_URL: 'https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_b.jpg'
+        BACKGROUND_URL: 'https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_b.jpg',
+
+        /**
+         * @constant MAX_IMAGES
+         * @type {Number}
+         */
+        MAX_IMAGES: 10
 
     };
 
@@ -54,10 +60,10 @@
     Flickr.tokenOnly(options, function(error, flickr) {
 
         // Retrieve the images from our Flickr account...
-        flickr.photos.search({ user_id: FLICKR.USER_ID, page: 1, per_page: 2 }, function results(error, result) {
+        flickr.photos.search({ user_id: FLICKR.USER_ID, page: 1, per_page: FLICKR.MAX_IMAGES }, function results(error, result) {
 
             images.backdrop = result.photos.photo.map(function map(model) {
-                return Mustache.render(FLICKR.BACKGROUND_URL, model);
+                return { label: model.title, src: Mustache.render(FLICKR.BACKGROUND_URL, model) };
             });
 
         });

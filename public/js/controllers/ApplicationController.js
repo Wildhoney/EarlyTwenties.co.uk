@@ -5,7 +5,7 @@
     /**
      * @controller ApplicationController
      */
-    $module.controller('ApplicationController', ['$scope', function ApplicationController($scope) {
+    $module.controller('ApplicationController', ['$scope', '$http', function ApplicationController($scope, $http) {
 
         /**
          * @property images
@@ -31,6 +31,10 @@
             'http://cs621125.vk.me/v621125766/a349/1-cveMkZXE4.jpg',
             'http://cs621125.vk.me/v621125766/a52f/2s9Q3XU8bVY.jpg'
         ];
+
+        $http.get('images/backdrop').success(function success(response) {
+            $scope.images = response;
+        });
 
     }]);
 
