@@ -2,7 +2,9 @@
 
     var JS_FILES      = ['public/js/App.js', 'public/js/**/*.js'],
         SASS_FILES    = ['public/scss/default.scss', 'public/scss/**/*.scss'],
-        JS_LIBRARIES  = ['public/vendor/angular/angular.js', 'public/vendor/mousetrap/mousetrap.js'],
+        JS_LIBRARIES  = ['public/vendor/angular/angular.js',
+                         'public/vendor/mousetrap/mousetrap.js',
+                         'public/vendor/filepicker/filepicker.min.js'],
         CSS_LIBRARIES = ['public/vendor/font-awesome/css/font-awesome.css'];
 
     var gulp         = require('gulp'),

@@ -1,5 +1,6 @@
 # npm
 node_modules
+npm-debug.log
 
 # Bower
 public/vendor/*
@@ -13,3 +14,4 @@ public/build/*
 !public/build/.gitkeep
 public/fonts/*
 !public/fonts/.gitkeep
+data
