@@ -25,7 +25,7 @@ ul.navigation {
         content: "";
         position: absolute;
         height: $height + 20;
-        -webkit-filter: blur($background-blur);
+        filter: blur($background-blur);
         width: 110%;
         top: -$background-blur;
         left: -$background-blur;
@@ -55,7 +55,7 @@ ul.navigation {
 
         &:hover {
             opacity: 1;
-            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
         }
 
         &:hover ul.sub-navigation {

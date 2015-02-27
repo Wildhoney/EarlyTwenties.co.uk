@@ -70,15 +70,15 @@
 
                 /**
                  * @property interval
-                 * @type {{cancel: *}}
+                 * @type {Object}
                  */
-                $scope.interval = { cancel: angular.noop };
+                $scope.interval = {};
 
                 /**
                  * @property timeout
-                 * @type {{cancel: *}}
+                 * @type {Object}
                  */
-                $scope.timeout = { cancel: angular.noop };
+                $scope.timeout = {};
 
                 /**
                  * @method setIndex

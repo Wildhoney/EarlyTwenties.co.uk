@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Shadows Into Light", Arial, Tahoma, Helvetica, sans-serif;
 }
 
 body, html {
@@ -10,11 +11,6 @@ body, html {
 
 @import "sections/navigation.scss";
 @import "sections/carousel.scss";
-
-h1 {
-//    font-family: "Shadows Into Light", Arial, Tahoma, Arial, Helvetica, sans-serif;
-    font-family: "Shadows Into Light", Georgia;
-}
 
 div.border {
     position: absolute;

@@ -4,13 +4,14 @@
         SASS_FILES    = ['public/scss/default.scss', 'public/scss/**/*.scss'],
         LIBRARY_FILES = ['public/vendor/angular/angular.js', 'public/vendor/mousetrap/mousetrap.js'];
 
-    var gulp        = require('gulp'),
-        uglify      = require('gulp-uglify'),
-        sass        = require('gulp-sass'),
-        rename      = require('gulp-rename'),
-        concat      = require('gulp-concat'),
-        jshint      = require('gulp-jshint'),
-        processhtml = require('gulp-processhtml');
+    var gulp         = require('gulp'),
+        uglify       = require('gulp-uglify'),
+        sass         = require('gulp-sass'),
+        rename       = require('gulp-rename'),
+        concat       = require('gulp-concat'),
+        jshint       = require('gulp-jshint'),
+        autoprefixer = require('gulp-autoprefixer'),
+        processhtml  = require('gulp-processhtml');
 
     gulp.task('js', function() {
 
@@ -34,6 +35,7 @@
 
         return gulp.src(SASS_FILES[0])
                    .pipe(sass())
+                   .pipe(autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'] }))
                    .pipe(rename('earlytwenties.css'))
                    .pipe(gulp.dest('public/build'));
 
