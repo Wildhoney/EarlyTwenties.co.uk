@@ -45,7 +45,7 @@
         response.send(JSON.stringify(images.backdrop));
     });
 
-    app.get('/images/portfolio', function(request) {
+    app.get('/images/portfolio', function(request, response) {
         response.send(JSON.stringify(images.portfolio));
     });
 

@@ -10,8 +10,8 @@ public/vendor/*
 .idea
 
 # Project
+data
 public/build/*
 !public/build/.gitkeep
 public/fonts/*
 !public/fonts/.gitkeep
-data
