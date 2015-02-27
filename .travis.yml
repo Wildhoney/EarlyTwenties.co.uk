@@ -15,6 +15,9 @@ script:
 
 deploy:
   provider: heroku
+  strategy: api
+  skip_cleanup: true
+  all_branches: true
   api_key:
     secure: WPPWjujFXgNfPDznYIp4M4jXSwgb0eV/Jz1m2YGtgRnmI2IhnuG6leheuAEHdsq/PArfeIPDg3KJJoomWGDXLjt+Wj1I1srjmbMI4wvXh4UIvraqxo6W97TIq663/01Y/Vj+99ymd1cVhU6tkMmjJIsfDycjg1YE7WiEILCC2Yo=
   app: earlytwenties
