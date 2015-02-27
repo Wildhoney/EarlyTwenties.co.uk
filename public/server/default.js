@@ -30,7 +30,19 @@
          * @constant MAX_IMAGES
          * @type {Number}
          */
-        MAX_IMAGES: 10
+        MAX_IMAGES: 10,
+
+        /**
+         * @constant BACKGROUND_PHOTOSET
+         * @type {String}
+         */
+        BACKGROUND_PHOTOSET: '72157651074972725',
+
+        /**
+         * @constant PORTFOLIO_PHOTOSET
+         * @type {String}
+         */
+        PORTFOLIO_PHOTOSET: '72157651074972725'
 
     };
 
@@ -55,17 +67,26 @@
         response.send(JSON.stringify(images.portfolio));
     });
 
+    // Voila! Listen for requests!
     server.listen($process.env.PORT || 5000);
 
     Flickr.tokenOnly(options, function(error, flickr) {
 
-        // Retrieve the images from our Flickr account...
-        flickr.photos.search({ user_id: FLICKR.USER_ID, page: 1, per_page: FLICKR.MAX_IMAGES }, function results(error, result) {
+        var backdropOptions  = { user_id: FLICKR.USER_ID, page: 1, per_page: FLICKR.MAX_IMAGES, photoset_id: FLICKR.BACKGROUND_PHOTOSET},
+            portfolioOptions = { user_id: FLICKR.USER_ID, page: 1, per_page: 1000, photoset_id: FLICKR.PORTFOLIO_PHOTOSET };
 
-            images.backdrop = result.photos.photo.map(function map(model) {
+        // Retrieve the images from our Flickr account...
+
+        flickr.photosets.getPhotos(backdropOptions, function results(error, result) {
+            images.backdrop = result.photoset.photo.map(function map(model) {
                 return { label: model.title, src: mustache.render(FLICKR.BACKGROUND_URL, model) };
             });
+        });
 
+        flickr.photosets.getPhotos(portfolioOptions, function results(error, result) {
+            images.portfolio = result.photoset.photo.map(function map(model) {
+                return { label: model.title, src: mustache.render(FLICKR.BACKGROUND_URL, model) };
+            });
         });
 
     });
