@@ -38,7 +38,7 @@
         app      = express(),
         server   = require('http').createServer(app),
         Flickr   = require('flickrapi'),
-        Mustache = require('Mustache'),
+        mustache = require('mustache'),
         images   = { backdrop: [], portfolio: []},
         options  = {
             api_key: FLICKR.API_KEY,
@@ -63,7 +63,7 @@
         flickr.photos.search({ user_id: FLICKR.USER_ID, page: 1, per_page: FLICKR.MAX_IMAGES }, function results(error, result) {
 
             images.backdrop = result.photos.photo.map(function map(model) {
-                return { label: model.title, src: Mustache.render(FLICKR.BACKGROUND_URL, model) };
+                return { label: model.title, src: mustache.render(FLICKR.BACKGROUND_URL, model) };
             });
 
         });
