@@ -49,7 +49,7 @@
     var express  = require('express'),
         app      = express(),
         server   = require('http').createServer(app),
-        Flickr   = require('flickrapi'),
+        Flickr   = require('flickr'),
         mustache = require('mustache'),
         images   = { backdrop: [], portfolio: []},
         options  = {
@@ -70,25 +70,53 @@
     // Voila! Listen for requests!
     server.listen($process.env.PORT || 5000);
 
-    Flickr.tokenOnly(options, function(error, flickr) {
+    var FlickrAPI= require('flickrnode').FlickrAPI;
+    var sys= require('sys');
+    var flickr= new FlickrAPI(FLICKR.API_KEY, $process.env.FLICKR_SECRET);
 
-        var backdropOptions  = { user_id: FLICKR.USER_ID, page: 1, per_page: FLICKR.MAX_IMAGES, photoset_id: FLICKR.BACKGROUND_PHOTOSET},
-            portfolioOptions = { user_id: FLICKR.USER_ID, page: 1, per_page: 1000, photoset_id: FLICKR.PORTFOLIO_PHOTOSET };
-
-        // Retrieve the images from our Flickr account...
-
-        flickr.photosets.getPhotos(backdropOptions, function results(error, result) {
-            images.backdrop = result.photoset.photo.map(function map(model) {
-                return { label: model.title, src: mustache.render(FLICKR.BACKGROUND_URL, model) };
-            });
-        });
-
-        flickr.photosets.getPhotos(portfolioOptions, function results(error, result) {
-            images.portfolio = result.photoset.photo.map(function map(model) {
-                return { label: model.title, src: mustache.render(FLICKR.BACKGROUND_URL, model) };
-            });
-        });
-
+// Get hold of a 'frob' (requires the method to be signed, does not require authentication)
+    flickr.auth.getFrob(function(error, frob) {
+        if( error ) fail(error);
+        else sys.puts("FROB: "+ sys.inspect(frob));
     });
+
+// Simply print out the error
+    function fail (err) {
+        sys.puts("ERR: " + err.code + " -  " + err.message);
+    };
+
+    //var FlickrAPI= require('flickr').FlickrAPI;
+    //var sys= require('sys');
+    //var flickr= new FlickrAPI(FLICKR.API_KEY);
+    //
+    //var backdropOptions  = { user_id: FLICKR.USER_ID, page: 1, per_page: FLICKR.MAX_IMAGES, photoset_id: FLICKR.BACKGROUND_PHOTOSET},
+    //    portfolioOptions = { user_id: FLICKR.USER_ID, page: 1, per_page: 1000, photoset_id: FLICKR.PORTFOLIO_PHOTOSET };
+    //
+    //console.log(flickr.people);
+    //
+    ////flickr.photosets.getPhotos(backdropOptions,  function(error, results) {
+    ////    sys.puts(sys.inspect(results));
+    ////});
+    //
+    ////Flickr.tokenOnly(options, function(error, flickr) {
+    ////
+    ////    var backdropOptions  = { user_id: FLICKR.USER_ID, page: 1, per_page: FLICKR.MAX_IMAGES, photoset_id: FLICKR.BACKGROUND_PHOTOSET},
+    ////        portfolioOptions = { user_id: FLICKR.USER_ID, page: 1, per_page: 1000, photoset_id: FLICKR.PORTFOLIO_PHOTOSET };
+    ////
+    ////    // Retrieve the images from our Flickr account...
+    ////
+    ////    flickr.photosets.getPhotos(backdropOptions, function results(error, result) {
+    ////        images.backdrop = result.photoset.photo.map(function map(model) {
+    ////            return { label: model.title, src: mustache.render(FLICKR.BACKGROUND_URL, model) };
+    ////        });
+    ////    });
+    ////
+    ////    flickr.photosets.getPhotos(portfolioOptions, function results(error, result) {
+    ////        images.portfolio = result.photoset.photo.map(function map(model) {
+    ////            return { label: model.title, src: mustache.render(FLICKR.BACKGROUND_URL, model) };
+    ////        });
+    ////    });
+    ////
+    ////});
 
 })(process);
