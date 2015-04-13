@@ -1,0 +1,98 @@
+main {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 101;
+    padding: 60px 20px 20px 20px;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+
+    div.content {
+
+        &.about {
+
+            margin: auto;
+            text-align: center;
+            padding: 35px;
+            width: 30%;
+            height: 90%;
+            float: left;
+            background-color: rgba(0, 0, 0, .5);
+            color: white;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, .25);
+            font-size: 12px;
+            line-height: 18px;
+            border-radius: 5px;
+            display: flex;
+
+            section {
+
+                $margin-bottom: 30px;
+
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+
+                h1 {
+                    font-family: "Amatic SC", sans-serif;
+                    font-size: 36px;
+                    margin-bottom: $margin-bottom;
+                    color: white;
+                }
+
+                p {
+                    margin-bottom: $margin-bottom;
+                    color: white;
+
+                    &:last-of-type {
+                        margin-bottom: 0;
+                    }
+                }
+
+            }
+
+        }
+
+        &.portfolio {
+
+            display: flex;
+            $dimensions: 250px;
+
+            ul {
+                list-style-type: none;
+                align-items: center;
+                justify-content: center;
+                margin: auto;
+                //background-color: rgba(0, 0, 0, .5);
+                overflow: hidden;
+                //padding: 120px 110px;
+                border-radius: 3px;
+
+                li {
+                    margin: 0 5px;
+                    font-family: "Amatic SC", sans-serif;
+                    border: 4px solid white;
+                    padding: 15px;
+                    text-align: center;
+                    height: $dimensions;
+                    width: $dimensions;
+                    float: left;
+                    overflow: hidden;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+                    color: white;
+                    font-size: 36px;
+                    text-shadow: 1px 1px 0 black;
+
+                    background-image: url('http://cs306303.vk.me/v306303766/1ee5/KfhQK52zqLA.jpg');
+                    background-size: cover;
+                    background-position: center center;
+                }
+            }
+
+        }
+    }
+}

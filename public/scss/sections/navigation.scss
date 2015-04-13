@@ -43,6 +43,13 @@ ul.navigation {
         cursor: pointer;
         position: relative;
 
+        a {
+            color: white;
+            font-family: "Amatic SC", sans-serif;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
         @media (max-width: $mobile-width) {
             display: block;
             padding: 0;

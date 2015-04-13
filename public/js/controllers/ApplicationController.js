@@ -32,10 +32,6 @@
             'http://cs621125.vk.me/v621125766/a52f/2s9Q3XU8bVY.jpg'
         ];
 
-        $http.get('images/backdrop').success(function success(response) {
-            $scope.images = response;
-        });
-
     }]);
 
 })(window.angular.module(APP_NAME));
