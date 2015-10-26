@@ -12,6 +12,7 @@ ul.navigation {
     line-height: $height;
     padding: 0 10px;
     margin: 10px 0 0 5px;
+    text-align: center;
 
     @media (max-width: $mobile-width) {
         margin: 30px 0 0 20px;
