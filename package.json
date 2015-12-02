@@ -2,6 +2,9 @@
   "name": "earlytwenties",
   "version": "0.1.0",
   "description": "Portfolio for Maria",
+  "engines": {
+    "node": "4.1.0"
+  },
   "main": "public/index.html",
   "scripts": {
     "test": "ava test/*.test.js",
