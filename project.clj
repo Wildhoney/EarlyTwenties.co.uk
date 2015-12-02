@@ -11,5 +11,6 @@
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler server.handler/app}
   :profiles
-  {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
+  {:dev{:plugins [[jonase/eastwood "0.2.2"]]
+        :dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring/ring-mock "0.3.0"]]}})

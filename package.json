@@ -11,7 +11,7 @@
     "js": "webpack -p -d",
     "css": "node-sass src/sass/default.scss public/build/maria.css",
     "build": "npm run js && npm run css",
-    "lint": "eslint src/*.js src/**/*.js",
+    "lint": "eslint src/*.js src/**/*.js && lein eastwood",
     "start": "lein ring server ${PORT:-5000}",
     "cleanup": "rimraf node_modules dev-resources"
   },
