@@ -1,4 +1,4 @@
-# Мари́
+# Мари́я
 
 > Photography portfolio for Maria written in React (with Redux, Keo) using Babel to transpile to ES5.
 
