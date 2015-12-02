@@ -10,3 +10,6 @@ npm-debug.log
 
 # project
 public/js/maria.js
+
+# sass
+.sass-cache
