@@ -1,0 +1,25 @@
+{
+  "name": "earlytwenties",
+  "version": "0.1.0",
+  "description": "Portfolio for Maria",
+  "main": "public/index.html",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wildhoney/Maria.git"
+  },
+  "keywords": [
+    "portfolio",
+    "maria",
+    "nikonova",
+    "timberlake"
+  ],
+  "author": "Adam Timberlake <adam.timberlake@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wildhoney/Maria/issues"
+  },
+  "homepage": "https://github.com/Wildhoney/Maria#readme"
+}
