@@ -13,3 +13,8 @@ public/js/maria.js
 
 # sass
 .sass-cache
+
+# clojure
+dev-resources
+resources
+target

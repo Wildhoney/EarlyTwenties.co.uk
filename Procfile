@@ -1,2 +1,1 @@
-web: java $JVM_OPTS -cp target/clojure-getting-started-standalone.jar clojure.main -m clojure-getting-started.web
-
+web: lein ring server ${PORT:-5000}
