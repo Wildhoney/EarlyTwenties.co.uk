@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        maria: ['./src/core.js']
+        maria: ['./src/js/core.js']
     },
     output: {
         path: path.join(__dirname, 'public/build'),
