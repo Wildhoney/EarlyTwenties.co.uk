@@ -7,3 +7,6 @@ npm-debug.log
 
 # os
 .DS_Store
+
+# project
+public/js/maria.js
