@@ -6,8 +6,8 @@
   "scripts": {
     "test": "ava test/*.test.js",
     "js": "webpack -p -d",
-    "sass": "sass src/sass/default.scss public/build/maria.css",
-    "build": "npm run js && npm run sass",
+    "css": "sass src/sass/default.scss public/build/maria.css",
+    "build": "npm run js && npm run css",
     "lint": "eslint src/*.js src/**/*.js",
     "start": "node example/server/default.js",
     "cleanup": "rimraf node_modules"
