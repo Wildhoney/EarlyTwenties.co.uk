@@ -10,7 +10,7 @@
     "test": "ava test/*.test.js",
     "js": "webpack -p -d",
     "css": "sass src/sass/default.scss public/build/maria.css",
-    "build": "npm run js",
+    "build": "npm run js && npm run css",
     "lint": "eslint src/*.js src/**/*.js",
     "start": "lein ring server ${PORT:-5000}",
     "cleanup": "rimraf node_modules dev-resources"
