@@ -4,8 +4,14 @@
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
 
 (defroutes app-routes
-  (GET "/" [] "Hello World")
-  (route/not-found "Not Found"))
+  (GET "/pictures" [] "[]")
+  (route/files "/")
+  (route/not-found "Page not found"))
 
-(def app
-  (wrap-defaults app-routes site-defaults))
+(defn wrap-dir-index [handler]
+  (fn [req]
+    (handler
+      (update-in req [:uri]
+        #(if (= "/" %) "/index.html" %)))))
+
+(def app (-> (routes app-routes) (wrap-dir-index)))
