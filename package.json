@@ -13,7 +13,7 @@
     "build": "npm run js && npm run css",
     "lint": "eslint src/*.js src/**/*.js",
     "start": "node example/server/default.js",
-    "cleanup": "rimraf node_modules"
+    "cleanup": "rimraf node_modules dev-resources"
   },
   "repository": {
     "type": "git",
