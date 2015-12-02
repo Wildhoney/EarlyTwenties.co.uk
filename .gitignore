@@ -2,15 +2,8 @@
 node_modules
 npm-debug.log
 
-# Bower
-public/vendor/*
-!public/vendor/.gitkeep
-
-# IDE
+# ide
 .idea
 
-# Project
-public/build/*
-!public/build/.gitkeep
-public/fonts/*
-!public/fonts/.gitkeep
+# os
+.DS_Store
