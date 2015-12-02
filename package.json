@@ -4,7 +4,10 @@
   "description": "Portfolio for Maria",
   "main": "public/index.html",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "build": "gulp build",
+    "start": "node example/server/default.js",
+    "cleanup": "rimraf node_modules"
   },
   "repository": {
     "type": "git",
@@ -21,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/Wildhoney/Maria/issues"
   },
-  "homepage": "https://github.com/Wildhoney/Maria#readme"
+  "homepage": "https://github.com/Wildhoney/Maria#readme",
+  "devDependencies": {
+    "rimraf": "^2.4.4"
+  }
 }
