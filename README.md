@@ -1,6 +1,6 @@
 # Мари́я
 
-> Photography portfolio for Maria written in React (with Redux, Keo) using Babel to transpile to ES5.
+> Photography portfolio for Maria written in React (with Redux, Keo) using Babel to transpile to ES5 with a Clojure API.
 
 ![Travis](http://img.shields.io/travis/Wildhoney/Maria.svg?style=flat-square)
 &nbsp;

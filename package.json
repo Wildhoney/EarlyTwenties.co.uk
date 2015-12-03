@@ -1,7 +1,7 @@
 {
   "name": "earlytwenties",
   "version": "0.1.0",
-  "description": "Photography portfolio for Maria written in React (with Redux, Keo) using Babel to transpile to ES5.",
+  "description": "Photography portfolio for Maria written in React (with Redux, Keo) using Babel to transpile to ES5 with a Clojure API.",
   "engines": {
     "node": "4.1.0"
   },
