@@ -13,7 +13,7 @@
     "build": "npm run js && npm run css",
     "lint": "eslint src/*.js src/**/*.js && lein eastwood",
     "start": "npm i && npm run build && lein ring server ${PORT:-5000}",
-    "watch": "watch 'npm run build' src/js src/sass/",
+    "watch": "watch 'npm run build' src/js/ src/sass/",
     "cleanup": "rimraf node_modules dev-resources"
   },
   "repository": {
@@ -46,7 +46,9 @@
     "webpack": "^1.12.9"
   },
   "dependencies": {
+    "baconjs": "^0.7.82",
     "keo": "^0.1.9",
+    "lodash": "^3.10.1",
     "react": "^0.14.3",
     "redux": "^3.0.4",
     "redux-thunk": "^1.0.0"
