@@ -2,5 +2,64 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    border: 1px solid green;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+section.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: no-repeat center;
+    background-size: cover;
+    overflow: hidden;
+    background: rgba(0, 0, 0, .9) none;
+
+    div {
+        $cubic-bezier: cubic-bezier(0.565, 0.000, 0.570, 0.995);
+        $opacity-lower: 0.15;
+        $opacity-upper: 0.75;
+        $scale-lower: 0.7;
+        $scale-upper: 1;
+        $transform-duration: 0.9s;
+        $opacity-duration: 0.5s;
+
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: no-repeat center;
+        background-size: cover;
+        transition: transform $transform-duration $cubic-bezier, opacity $opacity-duration $cubic-bezier;
+
+        &:nth-of-type(1) {
+            background-image: url('../images/Inside_the_Batad_rice_terraces.jpg');
+            transform: translate(0, 0) scale($scale-upper);
+            opacity: $opacity-upper;
+
+            &.shift {
+                transform: translate(0, -100%) scale($scale-lower);
+                transform-origin: top;
+                opacity: $opacity-lower;
+            }
+        }
+
+        &:nth-of-type(2) {
+            background-image: url('../images/landscape-large-03.jpg');
+            transform: translate(0, 100%) scale($scale-lower);
+            opacity: $opacity-lower;
+
+            &.shift {
+                transform: translate(0, 0) scale($scale-upper);
+                transform-origin: bottom;
+                opacity: $opacity-upper;
+            }
+        }
+    }
 }
