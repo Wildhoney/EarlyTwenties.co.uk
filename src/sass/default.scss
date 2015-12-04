@@ -30,6 +30,9 @@ main {
             margin: auto;
             font-weight: 100;
             font-size: 24px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
 
             var {
                 font-weight: bold;

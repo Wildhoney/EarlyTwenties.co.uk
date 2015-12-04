@@ -31,7 +31,7 @@ export default class extends React.Component {
 
             <section className="canvas">
                 <section className="pictures" ref="pictures">
-                    <h2>Pictures (12)</h2>
+                    <h2>About Me</h2>
                 </section>
             </section>
 

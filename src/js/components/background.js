@@ -5,9 +5,21 @@ import {fromEvent} from 'baconjs';
 
 export default class extends React.Component {
 
+    /**
+     * @property propTypes
+     * @type {Object}
+     */
     static propTypes = {
         index: React.PropTypes.number,
         images: React.PropTypes.array.isRequired
+    };
+
+    /**
+     * @property contextTypes
+     * @type {Object}
+     */
+    static contextTypes = {
+        router: React.PropTypes.func
     };
 
     /**
@@ -53,6 +65,8 @@ export default class extends React.Component {
 
                     const {index, images} = this.state;
                     const replaceIndex    = clockwise ? index + 1 : index - 1;
+
+                    this.props.history.pushState(null, Math.random() > .5 ? '/home' : '/about');
 
                     this.setState({
                         index: images[replaceIndex] ? replaceIndex : (clockwise ? 0 : images.length - 1),

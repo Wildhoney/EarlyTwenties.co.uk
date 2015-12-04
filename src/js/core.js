@@ -1,8 +1,10 @@
 import React from 'react'
 import {render} from 'react-dom'
 import {Router, Route, Link} from 'react-router'
+import createHashHistory from 'history/lib/createHashHistory';
 
 import Home from './pages/home';
+import About from './pages/about';
 import Background from './components/background';
 
 class App extends React.Component {
@@ -27,10 +29,13 @@ class App extends React.Component {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    const history = createHashHistory();
+
     render((
-        <Router>
+        <Router history={history}>
             <Route path="/" component={App}>
                 <Route path="home" component={Home} />
+                <Route path="about" component={About} />
             </Route>
         </Router>
     ), document.body);
