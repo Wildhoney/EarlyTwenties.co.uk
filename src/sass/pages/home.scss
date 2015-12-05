@@ -1,0 +1,74 @@
+@import '../mixins';
+
+&.home {
+
+    section.pictures {
+        $header-height: 32px;
+
+        width: 100%;
+        height: 100%;
+        max-width: 900px;
+        background-color: white;
+        box-shadow: 0 0 30px rgba(0, 0, 0, .25), 0 0 0 5px rgba(255, 255, 255, .25);
+        position: relative;
+
+        h2 {
+            color: black;
+            font-weight: 400;
+            height: $header-height;
+            line-height: $header-height;
+            border-bottom: 1px solid rgba(0, 0, 0, .075);
+            width: 100%;
+            font-size: 11px;
+            padding: 0 10px;
+        }
+
+        div.browser {
+            @include absolute();
+            padding-top: $header-height;
+
+            ul.categories {
+                $line-height: 28px;
+
+                float: left;
+                overflow: hidden;
+                height: 100%;
+                width: 30%;
+                border-right: 1px solid rgba(0, 0, 0, .1);
+
+                li {
+                    font-size: 11px;
+                    height: $line-height;
+                    line-height: $line-height;
+                    position: relative;
+                    font-weight: 300;
+
+                    &:nth-of-type(odd) {
+                        background-color: rgba(0, 0, 0, .025);
+                    }
+
+                    a {
+                        @include absolute();
+                        color: black;
+                        padding: 0 10px;
+                        cursor: pointer;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                }
+            }
+
+            div.viewer {
+                float: left;
+                overflow: hidden;
+                width: 70%;
+                height: 100%;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                border: 5px solid white;
+            }
+        }
+    }
+}

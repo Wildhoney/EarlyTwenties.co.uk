@@ -16,7 +16,7 @@ export default class extends React.Component {
 
         new TimelineLite()
             .from(pictures, 0.5, { transform: `scale(0.9)` }, 'appear')
-            .from(pictures, 0.25, { opacity: 0 }, 'appear')
+            .from(pictures, 2, { opacity: 0 }, 'appear')
             .to(pictures, 0.2, { opacity: 1, transform: `scale(1.03)` })
             .to(pictures, 0.5, { transform: `scale(1.0)` });
 
@@ -27,15 +27,24 @@ export default class extends React.Component {
      * @return {XML}
      */
     render() {
+
         return (
-
-            <section className="canvas">
+            <main className="home">
                 <section className="pictures" ref="pictures">
-                    <h2>Pictures (12)</h2>
+                    <h2>Portfolio</h2>
+                    <div className="browser">
+                        <ul className="categories">
+                            <li><a>Nature</a></li>
+                            <li><a>Travel</a></li>
+                            <li><a>Urban Landscapes</a></li>
+                        </ul>
+                        <div className="viewer" style={{ backgroundImage: `url(images/11537596_10205200764592805_3267665941076830075_o.jpg)` }}>
+                        </div>
+                    </div>
                 </section>
-            </section>
-
+            </main>
         );
+
     }
 
 }
