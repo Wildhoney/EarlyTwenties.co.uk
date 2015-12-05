@@ -15,10 +15,8 @@ export default class extends React.Component {
         console.log('x');
 
         new TimelineLite()
-            .from(pictures, 0.5, { transform: `scale(0.9)` }, 'appear')
-            .from(pictures, 2, { opacity: 0 }, 'appear')
-            .to(pictures, 0.2, { opacity: 1, transform: `scale(1.03)` })
-            .to(pictures, 0.5, { transform: `scale(1.0)` });
+            .from(pictures, 1, { transform: `scale(0.7)` }, 'appear')
+            .from(pictures, 2, { opacity: 0 }, 'appear');
 
     }
 
