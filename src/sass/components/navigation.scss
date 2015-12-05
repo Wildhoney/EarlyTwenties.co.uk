@@ -1,0 +1,45 @@
+nav {
+    position: absolute;
+    top: 60px;
+    color: white;
+    z-index: 4;
+    padding-left: 1px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+
+    ul {
+        list-style-type: none;
+        display: inline-block;
+
+        li {
+            font-size: 11px;
+            height: 32px;
+            line-height: 32px;
+            margin-bottom: 1px;
+            display: inline-block;
+            margin-right: 10px;
+
+            &.active:before {
+                opacity: 1;
+            }
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+
+            &.active {
+                border-bottom: 2px solid white;
+            }
+
+            a {
+                font-family: Lato, Arial, Helvetica, sans-serif;
+                font-weight: 200;
+                color: lightgray;
+                cursor: pointer;
+            }
+        }
+    }
+}

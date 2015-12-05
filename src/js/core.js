@@ -6,6 +6,7 @@ import createHashHistory from 'history/lib/createHashHistory';
 import Home from './pages/home';
 import About from './pages/about';
 import Background from './components/background';
+import Navigation from './components/navigation';
 
 class App extends React.Component {
 
@@ -18,6 +19,7 @@ class App extends React.Component {
                     '10919772_10204037928682634_3559155281616018900_o.jpg',
                     '11537596_10205200764592805_3267665941076830075_o.jpg'
                 ]} />
+                <Navigation />
                 <header>
                     <h1>Portfolio of <var>Maria</var>.</h1>
                 </header>

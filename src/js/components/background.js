@@ -15,14 +15,6 @@ export default class extends React.Component {
     };
 
     /**
-     * @property contextTypes
-     * @type {Object}
-     */
-    static contextTypes = {
-        router: React.PropTypes.func
-    };
-
-    /**
      * @method componentWillMount
      * @return {void}
      */
