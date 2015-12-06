@@ -1,6 +1,8 @@
 @import '../mixins';
+@import '../config';
 
 &.home {
+    padding: ($header-height + $container-padding) $container-padding $container-padding $container-padding;
 
     section.pictures {
         $header-height: 32px;

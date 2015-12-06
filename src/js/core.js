@@ -6,8 +6,6 @@ import createHashHistory from 'history/lib/createHashHistory';
 import App from './app';
 import Home from './pages/home';
 import About from './pages/about';
-import Background from './components/background';
-import Navigation from './components/navigation';
 
 document.addEventListener('DOMContentLoaded', () => {
 

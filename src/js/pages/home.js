@@ -12,8 +12,6 @@ export default class extends React.Component {
 
         const pictures = findDOMNode(this.refs.pictures);
 
-        console.log('x');
-
         new TimelineLite()
             .from(pictures, 1, { transform: `scale(0.7)` }, 'appear')
             .from(pictures, 2, { opacity: 0 }, 'appear');
