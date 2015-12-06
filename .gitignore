@@ -21,3 +21,6 @@ server/run
 
 # build
 public/build
+
+# clojure
+.lein-repl-history
