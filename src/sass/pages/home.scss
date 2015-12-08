@@ -35,7 +35,8 @@
                 float: left;
                 overflow: hidden;
                 height: 100%;
-                width: 30%;
+                width: 20%;
+                transition: all .45s;
                 border-right: 1px solid rgba(0, 0, 0, .1);
 
                 li {
@@ -45,7 +46,7 @@
                     position: relative;
                     font-weight: 300;
 
-                    &:nth-of-type(odd) {
+                    &:nth-of-type(even) {
                         background-color: rgba(0, 0, 0, .025);
                     }
 
@@ -59,17 +60,6 @@
                         overflow: hidden;
                     }
                 }
-            }
-
-            div.viewer {
-                float: left;
-                overflow: hidden;
-                width: 70%;
-                height: 100%;
-                background-size: cover;
-                background-position: center center;
-                background-repeat: no-repeat;
-                border: 5px solid white;
             }
         }
     }
