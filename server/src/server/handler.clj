@@ -6,11 +6,11 @@
             [ring.util.response :refer [response]]
             [ring.middleware.json :refer [wrap-json-response]]))
 
-;(def app-key (System/getenv "DROPBOX_APP_KEY"))
-;(def app-secret (System/getenv "DROPBOX_APP_SECRET"))
-;
-;(def consumer (make-consumer app-key app-secret))
-;(def request-token (fetch-request-token consumer))
+(def app-key (System/getenv "DROPBOX_APP_KEY"))
+(def app-secret (System/getenv "DROPBOX_APP_SECRET"))
+
+(def consumer (make-consumer app-key app-secret))
+(def request-token (fetch-request-token consumer))
 
 (defroutes app-routes
 
